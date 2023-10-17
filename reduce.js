@@ -51,3 +51,21 @@ let expByProf = teamMembers.reduce((acc, curr) => {
 }, {});
 
 console.log(expByProf);
+
+/* Let's try to group all members by profession!
+   We want an object which contains professions as
+   the keys and an array with all names of those with
+   that profession as the values. */
+let namesByProf = teamMembers.reduce((acc, curr) => {
+  let key = curr.profession;
+  if (!acc[key]) {
+    acc[key] = [];
+    acc[key].push(curr.name);
+  } else {
+    acc[key].push(curr.name);
+  }
+  return acc;
+}, {});
+
+// Glorious success!!!
+console.log(namesByProf);
